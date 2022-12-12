@@ -1,17 +1,19 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
 
-
 import styles from './NewsCard.style';
 
-const NewsCard = (props) => {
+const NewsCard = ({item}) => {
     return (
         <View style={styles.container}>
-            <Image style={styles.image} source={{uri:props.element.imageUrl}}/>
-            <Text  style={styles.title}>{props.element.title}</Text>
-            <Text  style={styles.description}>{props.element.description}</Text>
+            <Image source={{uri:item.imageUrl}} style={styles.image}/>
+            <Text  style={styles.title}>{item.title}</Text>
+            <Text  style={styles.description}>{item.description}</Text>
+            <Text style={styles.author}>
+                {item.author}
+            </Text>
         </View>
-    )
-}
+    );
+};
 
 export default NewsCard;
